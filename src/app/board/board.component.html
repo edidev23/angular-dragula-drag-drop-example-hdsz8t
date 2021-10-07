@@ -1,0 +1,18 @@
+
+<div class="wrapper" dragula="COLUMNS" [(dragulaModel)]="groups">
+    
+    <div class="container" *ngFor="let group of groups | orderByPosition">
+      
+        <span class="group-handle">{{group.name}} - {{group.position}}</span>
+      
+        <div class="container" dragula="ITEMS" [(dragulaModel)]="group.items">
+            <div *ngFor="let item of group.items | orderByPosition">
+                {{item.name}} - {{item.position}}
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<button (click)="reset()">Reset data</button>
